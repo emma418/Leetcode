@@ -3,25 +3,21 @@
 public class Main {
     public static void main(String[] args) {
 
-        String haystack = "mississippi";
-        String needle = "pi";
+        String haystack = "abcd";
+        String needle = "d";
         System.out.println(strStr(haystack, needle));
+        
 
     }
     public static int strStr(String haystack, String needle) {
-        int index = -1;
-        int sub = 0;
-        while(haystack.contains(needle)){
-            sub = sub + index + 1;
-            index = haystack.indexOf(needle.charAt(0));
-            if (haystack.substring(index, index+needle.length()).equals(needle)) {
-                return index + sub;
-            } else {
-                haystack = haystack.substring(index + 1);
-                continue;
+        if (needle.length() > haystack.length()) return -1;
+        if (haystack.equals(needle)) return 0;
+        for (int i = 0; i <= haystack.length() - needle.length(); i++) {
+            if(haystack.substring(i, i+needle.length()).equals(needle)) {
+                return i;
             }
-        }
-        return index;
 
+        }
+        return -1;
     }
 }
