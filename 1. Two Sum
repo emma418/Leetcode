@@ -2,7 +2,13 @@
 Runtime complexity: O(n)
 Data Structure: HashMap
 
-Use a HashMap to store the indices of elements as they are iterated through the array. For each element, it checks if the complement(target - current element) exists in the map. If it does, the indices of the two numbers that sum up to the target are returned. Otherwise, the current element's value and its index are added to the map, and the iteration continues. This method ensures that each complement can be checked in constant time while iterating through the array only once.  
+Use a HashMap to store the indices of elements as they are iterated through the array. For each element, 
+it checks if the complement(target - current element) exists in the map. If it does, the indices of the 
+two numbers that sum up to the target are returned. Otherwise, the current element's value and its index 
+are added to the map, and the iteration continues. This method ensures that each complement can be checked 
+in constant time while iterating through the array only once.  
+
+**/
 
 
 
