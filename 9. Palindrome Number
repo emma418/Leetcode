@@ -1,3 +1,19 @@
+/**
+Runtime Complexity: O(n)
+First, check if the input integer 'x' is negative. Since negative numbers cannot be palindromes due to the minus sign, 
+the function immediately returns 'false' for any negative input.
+For non-negative numbers, the code initializes a variable 'sum' to accumulate the reversed number. It then iterates
+through each digit of 'x' by continuously dividing 'x' by 10 (using 'y' as the loop variable to preserve the original
+number 'x').
+In each iteration, the remainder of 'y' divided by 10(representing the last digit of 'y') is added to 'sum', which is 
+previously multiplied by 10 to shift its digits left, making space for the new digit.
+After the loop completes, 'sum' contains the reversed number.
+Finally, check if 'sum' is equal to the original number 'x'.
+
+
+**/
+
+
 class Solution {
     public boolean isPalindrome(int x) {
         if (x < 0) {
