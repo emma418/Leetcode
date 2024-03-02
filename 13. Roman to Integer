@@ -1,3 +1,12 @@
+/**
+Runtime Complexity: O(n)
+Memory Complexity: O(1)
+A 'switch' statement maps Roman numerals to their integer values respectively.
+Iterates through the string from left to right, adding the value of the current numeral to the total result.
+If the current numeral represents a larger number than the previous one(indicating a subtractive pairing,
+such as IV or IX), the algorithm adjusts by subtracting twice the value of the previous numeral(since it was
+added once before encountering the current numeral).
+
 
 class Solution {
     public int romanToInt(String s) {
