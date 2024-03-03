@@ -1,3 +1,13 @@
+/**
+Runtime Complexity: O(nlog n)
+Memory Complexity: O(1)
+First sort the string array, this ensures that strings that are similar will be adjacent, and particularly, the first
+and the last strings in the sorted array will represent the range of all string variations in terms of their prefixes.
+only compare the first and the last strings in the sorted array, since any common prefix present across all strings 
+must also be a common prefix between these two extremes.
+
+**/
+
 class Solution {
     public String longestCommonPrefix(String[] strs) {
         Arrays.sort(strs);
