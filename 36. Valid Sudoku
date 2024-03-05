@@ -1,4 +1,29 @@
 class Solution {
+
+    //Solution 2
+    public boolean isValidSudoku(char[][] board) {
+        boolean[][] rowCheck = new boolean[9][9];
+        boolean[][] colCheck = new boolean[9][9];
+        boolean[][] boxCheck = new boolean[9][9];
+
+        for(int i = 0; i < 9; i++) {
+            for(int j = 0; j < 9; j++) {
+                if (board[i][j] == '.') {
+                    continue;
+                }
+                int index = board[i][j] - '1';
+                int boxIndex = i / 3 * 3 + j / 3;
+                if (rowCheck[i][index] || colCheck[j][index] || boxCheck[boxIndex][index]) {
+                    return false;
+                }
+                rowCheck[i][index] = true;
+                colCheck[j][index] = true;
+                boxCheck[boxIndex][index] = true;
+            }            
+        }
+        return true;
+
+}
     public boolean isValidSudoku(char[][] board) {
         HashSet<Character> set = new HashSet<>();
         for(int i = 0; i < 9; i++) {
