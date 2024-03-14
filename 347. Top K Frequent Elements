@@ -1,0 +1,24 @@
+class Solution {
+    public int[] topKFrequent(int[] nums, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        int[] ans = new int[k];
+        //put number in the key and count of the number in the array as value
+        for(int num : nums) {
+            map.put(num, map.getOrDefault(num, 1) + 1);
+        }
+        //sort the value in descending order
+        PriorityQueue<Integer> pq = new PriorityQueue<>((o1, o2) -> map.get(o1) - map.get(o2));
+        for(int key: map.keySet()){
+            pq.add(key);
+            //when the size of pq is greater than k, poll out the smallest value
+            if (pq.size() > k) {
+                pq.poll();
+            }
+        }
+        for (int i = 0; i < k; i++){
+            ans[i] = pq.poll();
+        }
+        
+        return ans;
+    }
+}
