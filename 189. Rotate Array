@@ -1,4 +1,4 @@
-//Solution 2, recursion
+//Solution 2, reverse the numbers
 class Solution {
     public void rotate(int[] nums, int k) {
         int len = nums.length;
