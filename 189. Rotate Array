@@ -1,4 +1,26 @@
-//Soultion 1, copy a new array
+//Solution 2, recursion
+class Solution {
+    public void rotate(int[] nums, int k) {
+        int len = nums.length;
+        k = k % len;
+        exchange(nums, 0, len-1);
+        exchange(nums, 0, k-1);
+        exchange(nums, k, len-1);
+    }
+    public void  exchange(int[] nums, int start, int end) {
+        int temp;
+        while (start < end) {
+            temp = nums[start];
+            nums[start] = nums[end];
+            nums[end] = temp;
+            start++;
+            end--;
+        }
+    }
+}
+
+
+//Solution 1, copy a new array
 class Solution {
     public void rotate(int[] nums, int k) {
         int len = nums.length;
