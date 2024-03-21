@@ -1,0 +1,19 @@
+class Solution {
+    public int jump(int[] nums) {
+        int jump = 0;
+        int currPosition = 0;
+        int nextPosition = 0;
+        for(int i = 0; i < nums.length - 1; i++) {
+            nextPosition = Math.max(nextPosition, nums[i]+i);
+            if (i == currPosition){
+                jump++;
+                currPosition = nextPosition;
+                if (currPosition >= nums.length-1) {
+                    return jump;
+                }
+            }                   
+            
+        }
+        return jump;
+    }
+}
