@@ -1,4 +1,4 @@
-// solution, sorting the array
+// solution 1, sorting the array
 class Solution {
     public int hIndex(int[] citations) {       
         Arrays.sort(citations);
@@ -9,5 +9,23 @@ class Solution {
             else break;
         }
         return h;
+    }
+}
+
+//solution 2, using extra space
+class Solution {
+    public int hIndex(int[] citations) {       
+        int n = citations.length;
+        int[] arr = new int[n+1];
+        for(int num : citations) {
+            if (num >= n) arr[n]++;
+            else arr[num]++;
+        }
+        int h = 0;
+        for(int i = n; i >= 0; i--) {           
+            h += arr[i]; 
+            if (h >= i) return i;          
+        }
+        return 0;
     }
 }
