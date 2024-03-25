@@ -10,42 +10,27 @@ added once before encountering the current numeral).
 
 class Solution {
     public int romanToInt(String s) {
-        int result = 0;
-        int number = 0;
-        int prev = 0;
-        for(int i = 0; i < s.length(); i++) {
-            switch(s.charAt(i)){
-                case 'M':
-                    number = 1000;
-                    break;
-                case 'D':
-                    number = 500;
-                    break;
-                case 'C':
-                    number = 100;
-                    break;
-                case 'L':
-                    number = 50;
-                    break;
-                case 'X':
-                    number = 10;
-                    break;
-                case 'V':
-                    number = 5;
-                    break;
-                case 'I':
-                    number = 1;
-                    break;
+        int sum = 0;
+        int value = 0;
+        int preValue = 0;
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            switch(c) {
+                case 'I' -> value = 1;
+                case 'V' -> value = 5;
+                case 'X' -> value = 10;
+                case 'L' -> value = 50;
+                case 'C' -> value = 100;
+                case 'D' -> value = 500;
+                case 'M' -> value = 1000;
             }
-
-            if (number <= prev) {
-                result += number;
+            if (value <= preValue) {
+                sum += value;
             } else {
-                result = result + number - 2*prev;
+                sum = sum + value - 2*preValue;
             }
-            prev = number;
+            preValue = value;
         }
-        return result;
+        return sum;
     }
-    
 }
