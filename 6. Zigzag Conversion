@@ -1,0 +1,17 @@
+class Solution {
+    public String convert(String s, int numRows) {
+        if (numRows == 1) return s;
+        StringBuilder sb = new StringBuilder();        
+        for (int row = 0; row < numRows; row++) {
+            int index = row;                          
+            while(index < s.length()){
+                sb.append(s.charAt(index));
+                if (row > 0 && row < numRows-1 && (index + (numRows-1)*2-row*2) < s.length()) {
+                    sb.append(s.charAt(index+((numRows-1)*2-row*2)));                            
+                } 
+                index = index + (numRows-1)*2;                
+            }            
+        }
+        return sb.toString();        
+    }
+}
